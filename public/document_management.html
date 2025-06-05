@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>뜨거운 감자</title>
+  <link rel="stylesheet" href="component.css">
+</head>
+<body>
+    <!-- 콘텐츠 영역 -->
+    <div class="content">
+     <!-- 카드 섹션 - 최근 문서와 자주 찾는 양식 -->
+      <div class="cards-row">
+        <!-- 최근 문서 카드 -->
+        <div class="card document-card">
+          <!-- 헤더 부분 -->
+          <div class="card-header" style="background-color: var(--accent)">
+            <div class="card-icon-container">
+              <div class="card-icon">
+                <div class="icon icon-file"></div>
+              </div>
+            </div>
+            <div class="card-title">최근 문서</div>
+            <div class="card-subtitle">최근에 열람한 문서를 확인하세요</div>
+          </div>
+          
+          <!-- 문서 목록 부분 -->
+          <div class="items-list">
+            <!-- 문서 항목 1 -->
+            <div class="list-item">
+              <div class="item-info">
+                <div class="item-name">2024년 예산 계획안</div>
+                <div class="item-time">1일전</div>
+              </div>
+              <div class="item-arrow">
+                <div class="icon icon-chevron-right"></div>
+              </div>
+            </div>
+            
+            <!-- 문서 항목 2 -->
+            <div class="list-item">
+              <div class="item-info">
+                <div class="item-name">3월 회의록</div>
+                <div class="item-time">2시간 전</div>
+              </div>
+              <div class="item-arrow">
+                <div class="icon icon-chevron-right"></div>
+              </div>
+            </div>
+            
+            <!-- 문서 항목 3 -->
+            <div class="list-item">
+              <div class="item-info">
+                <div class="item-name">인사 발령 안내</div>
+                <div class="item-time">어제</div>
+              </div>
+              <div class="item-arrow">
+                <div class="icon icon-chevron-right"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 자주 찾는 양식 카드 -->
+        <div class="card form-card">
+          <!-- 헤더 부분 -->
+          <div class="card-header" style="background-color: var(--table-header-bg)">
+            <div class="card-icon-container">
+              <div class="card-icon">
+                <div class="icon icon-star"></div>
+              </div>
+            </div>
+            <div class="card-title">자주 찾는 양식</div>
+            <div class="card-subtitle">자주 사용하는 양식을 빠르게 접근하세요</div>
+          </div>
+          
+          <!-- 양식 목록 부분 -->
+          <div class="items-list">
+            <!-- 양식 항목 1 -->
+            <div class="list-item">
+              <div class="item-info">
+                <div class="item-name">보고서</div>
+              </div>
+              <div class="item-arrow">
+                <div class="icon icon-chevron-right"></div>
+              </div>
+            </div>
+            
+            <!-- 양식 항목 2 -->
+            <div class="list-item">
+              <div class="item-info">
+                <div class="item-name">기획안</div>
+              </div>
+              <div class="item-arrow">
+                <div class="icon icon-chevron-right"></div>
+              </div>
+            </div>
+            
+            <!-- 양식 항목 3 -->
+            <div class="list-item">
+              <div class="item-info">
+                <div class="item-name">회의록</div>
+              </div>
+              <div class="item-arrow">
+                <div class="icon icon-chevron-right"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 문서함 영역 - 테두리로 감싸진 테이블 -->
+      <div class="document-container">
+        <div class="table-container">
+          <!-- 문서함 헤더 -->
+<div class="section-header" style="background-color: var(--primary)">
+  <div class="section-title-container">
+    <div class="section-title" style="color: white;">문서함</div>
+  </div>
+  <a href="docbox.html" style="text-decoration: none; color: inherit;">
+    <div class="submenu-item" data-page="docbox">
+      <div class="view-all-button" style="color: #e0e0e0;">모두 보기</div>
+    </div>
+  </a>
+</div>
+          
+          <!-- 테이블 헤더 -->
+          <div class="table-header">
+            <div class="table-header-cell doc-number-cell">문서번호</div>
+            <div class="table-header-cell title-cell">제목</div>
+            <div class="table-header-cell author-cell">작성자</div>
+            <div class="table-header-cell date-cell">최근 수정일</div>
+            <div class="table-header-cell date-cell">기한일</div>
+            <div class="table-header-cell status-cell">상태</div>
+          </div>
+        
+          <!-- 테이블 데이터 행 -->
+          <div class="table-row">
+            <div class="table-cell doc-number-cell">DOC-2024-001</div>
+            <div class="table-cell title-cell title-bold">2024년 1분기 사업계획서</div>
+            <div class="table-cell author-cell">이지원</div>
+            <div class="table-cell date-cell">2024-03-16</div>
+            <div class="table-cell date-cell">2024-03-15</div>
+            <div class="table-cell status-cell">
+              <div class="status-badge">
+                <div class="status-text">진행중</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="table-row">
+            <div class="table-cell doc-number-cell">DOC-2024-002</div>
+            <div class="table-cell title-cell title-bold">신규 프로젝트 제안서</div>
+            <div class="table-cell author-cell">박서연</div>
+            <div class="table-cell date-cell">2024-03-15</div>
+            <div class="table-cell date-cell">2024-03-14</div>
+            <div class="table-cell status-cell">
+              <div class="status-badge">
+                <div class="status-text">진행중</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="table-row">
+            <div class="table-cell doc-number-cell">DOC-2024-003</div>
+            <div class="table-cell title-cell title-bold">인사 발령 품의서</div>
+            <div class="table-cell author-cell">김준호</div>
+            <div class="table-cell date-cell">2024-03-14</div>
+            <div class="table-cell date-cell">2024-03-13</div>
+            <div class="table-cell status-cell">
+              <div class="status-badge">
+                <div class="status-text">진행중</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="table-row">
+            <div class="table-cell doc-number-cell">DOC-2024-005</div>
+            <div class="table-cell title-cell title-bold">연간 교육 계획서</div>
+            <div class="table-cell author-cell">강현우</div>
+            <div class="table-cell date-cell">2024-03-12</div>
+            <div class="table-cell date-cell">2024-03-11</div>
+            <div class="table-cell status-cell">
+              <div class="status-badge">
+                <div class="status-text">진행중</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 하단 문서 통계 카드 영역 -->
+      <div class="stats-container">
+        <!-- 수신 문서함 통계 -->
+        <div class="stat-card" style="background-color: var(--primary)">
+          <div class="stat-count" style="color: white">12</div>
+          <div class="stat-title" style="color: white">수신 문서함</div>
+        </div>
+        
+        <!-- 발신 문서함 통계 -->
+        <div class="stat-card" style="background-color: var(--secondary)">
+          <div class="stat-count" style="color: white">8</div>
+          <div class="stat-title" style="color: white">발신 문서함</div>
+        </div>
+        
+        <!-- 임시 저장 통계 -->
+        <div class="stat-card" style="background-color: rgb(243, 238, 234)">
+          <div class="stat-count" style="color: #333">3</div>
+          <div class="stat-title" style="color: #333">임시 저장</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서함</title>
+    <link rel="stylesheet" href="component.css">
+    <style>
+        /* 체크박스 스타일 */
+        .checkbox-cell {
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .doc-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        /* 테이블 헤더에 체크박스 셀 추가 */
+        .table-header-cell.checkbox-cell {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+<!-- 메인 콘텐츠 영역 -->
+<div class="content" id="dynamicContent">
+    <!-- 필터링 영역 -->
+    <div class="filter-section">
+      <div class="filter-row">
+        <div class="filter-group">
+          <div class="filter-label">상태</div>
+          <div class="select-container">
+            <select class="filter-select">
+              <option>전체</option>
+              <option>진행중</option>
+              <option>완료</option>
+              <option>반려</option>
+              <option>임시저장</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <div class="filter-label">기안자</div>
+          <div class="select-container">
+            <select class="filter-select">
+              <option>전체</option>
+              <option>나나</option>
+              <option>이지원</option>
+              <option>박서연</option>
+              <option>김준호</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="filter-group">
+          <div class="filter-label">정렬</div>
+          <div class="select-container">
+            <select class="filter-select"> 
+              <option>최신순</option>
+              <option>오래된순</option>
+              <option>제목순</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-group">
+            <div class="filter-label">카테고리</div>
+            <div class="select-container">
+              <select class="filter-select">
+                <option>전체</option>
+                <option>정기 회의</option>
+                <option>부서 회의</option>
+                <option>프로젝트 회의</option>
+                <option>이사회</option>
+                <option>전체 회의</option>
+              </select>
+            </div>
+          </div>
+      </div>
+      <div class="filter-row second-row">
+        <div class="filter-group date-group">
+          <div class="filter-label">기간</div>
+          <div class="date-range">
+            <input type="date" class="date-input" placeholder="시작일">
+            <span class="date-separator">~</span>
+            <input type="date" class="date-input" placeholder="종료일">
+          </div>
+        </div>
+        
+        <div class="filter-actions">
+          <button class="btn-reset">필터 초기화</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 문서 목록 헤더 -->
+    <div class="doc-list-header">
+      <div class="doc-count">
+        <span class="count-text">총 15개의 문서</span>
+      </div>
+      <div class="doc-actions">
+        <button class="btn-download">
+          <span class="icon-download"></span>
+          다운로드
+        </button>
+        <button class="btn-print">
+          <span class="icon-print"></span>
+          공유
+        </button>
+        <button class="btn-delete">
+          <span class="icon-trash"></span>
+          삭제
+        </button>
+      </div>
+    </div>
+    
+    <!-- 문서함 영역 - 테두리로 감싸진 테이블 -->
+    <div class="docbox-container">
+      <div class="table-container">
+        <!-- 문서함 헤더 -->
+        <div class="section-header" style="background-color: var(--primary)">
+          <div class="section-title-container">
+            <div class="section-title" style="color: white;">문서함</div>
+          </div>
+        </div>
+        
+        <!-- 테이블 헤더 -->
+        <div class="table-header">
+          <div class="table-header-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="select-all">
+          </div>
+          <div class="table-header-cell doc-number-cell">문서번호</div>
+          <div class="table-header-cell title-cell">제목</div>
+          <div class="table-header-cell author-cell">기안자</div>
+          <div class="table-header-cell date-cell">최근 수정일</div>
+          <div class="table-header-cell date-cell">기한일</div>
+          <div class="table-header-cell status-cell">상태</div>
+        </div>
+      
+        <!-- 테이블 데이터 행 -->
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-1">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-001</div>
+          <div class="table-cell title-cell title-bold">2024년 1분기 사업계획서</div>
+          <div class="table-cell author-cell">이지원</div>
+          <div class="table-cell date-cell">2024-04-10</div>
+          <div class="table-cell date-cell">2024-04-15</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge">
+              <div class="status-text">진행중</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-2">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-002</div>
+          <div class="table-cell title-cell title-bold">신규 프로젝트 제안서</div>
+          <div class="table-cell author-cell">박서연</div>
+          <div class="table-cell date-cell">2024-04-09</div>
+          <div class="table-cell date-cell">2024-04-14</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge">
+              <div class="status-text">진행중</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-3">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-003</div>
+          <div class="table-cell title-cell title-bold">인사 발령 통의서</div>
+          <div class="table-cell author-cell">김준호</div>
+          <div class="table-cell date-cell">2024-04-08</div>
+          <div class="table-cell date-cell">2024-04-13</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge complete">
+              <div class="status-text">완료</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-4">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-004</div>
+          <div class="table-cell title-cell title-bold">마케팅 전략 보고서</div>
+          <div class="table-cell author-cell">최민지</div>
+          <div class="table-cell date-cell">2024-04-07</div>
+          <div class="table-cell date-cell">2024-04-12</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge rejected">
+              <div class="status-text">반려</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-5">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-005</div>
+          <div class="table-cell title-cell title-bold">연간 교육 계획서</div>
+          <div class="table-cell author-cell">강현우</div>
+          <div class="table-cell date-cell">2024-04-06</div>
+          <div class="table-cell date-cell">2024-04-11</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge">
+              <div class="status-text">진행중</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-6">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-006</div>
+          <div class="table-cell title-cell title-bold">2024년 2분기 예산안</div>
+          <div class="table-cell author-cell">정도윤</div>
+          <div class="table-cell date-cell">2024-04-05</div>
+          <div class="table-cell date-cell">2024-04-10</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge complete">
+              <div class="status-text">완료</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-7">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-007</div>
+          <div class="table-cell title-cell title-bold">신규 서비스 기획안</div>
+          <div class="table-cell author-cell">한소희</div>
+          <div class="table-cell date-cell">2024-04-04</div>
+          <div class="table-cell date-cell">2024-04-09</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge temp">
+              <div class="status-text">임시저장</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-8">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-008</div>
+          <div class="table-cell title-cell title-bold">시스템 개선 제안서</div>
+          <div class="table-cell author-cell">임재현</div>
+          <div class="table-cell date-cell">2024-04-03</div>
+          <div class="table-cell date-cell">2024-04-08</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge">
+              <div class="status-text">진행중</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-9">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-009</div>
+          <div class="table-cell title-cell title-bold">고객 만족도 조사 결과</div>
+          <div class="table-cell author-cell">송지은</div>
+          <div class="table-cell date-cell">2024-04-02</div>
+          <div class="table-cell date-cell">2024-04-07</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge complete">
+              <div class="status-text">완료</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-row">
+          <div class="table-cell checkbox-cell">
+            <input type="checkbox" class="doc-checkbox" id="doc-10">
+          </div>
+          <div class="table-cell doc-number-cell">DOC-2024-010</div>
+          <div class="table-cell title-cell title-bold">신입사원 교육 계획</div>
+          <div class="table-cell author-cell">윤성민</div>
+          <div class="table-cell date-cell">2024-04-01</div>
+          <div class="table-cell date-cell">2024-04-06</div>
+          <div class="table-cell status-cell">
+            <div class="status-badge rejected">
+              <div class="status-text">반려</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 페이지네이션 -->
+    <div class="pagination">
+      <div class="per-page">
+        페이지당 항목:
+        <select class="per-page-select">
+          <option>10</option>
+          <option>20</option>
+        </select>
+      </div>
+      
+      <div class="pagination-controls">
+        <button class="pagination-btn prev-btn">&lt;</button>
+        <button class="pagination-btn page-btn active">1</button>
+        <button class="pagination-btn page-btn">2</button>
+        <button class="pagination-btn page-btn">3</button>
+        <button class="pagination-btn next-btn">&gt;</button>
+      </div>
+      
+      <div class="pagination-info">
+        총 15개 중 1-10
+      </div>
+    </div>
+  </div>
+<script src="docbox.js"></script>
+</body>
+</html>

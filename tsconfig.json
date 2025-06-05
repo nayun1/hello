@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "ESNext",
+    "target": "ES6",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-native",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": ["./src", "App.tsx"],
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js"]
+}

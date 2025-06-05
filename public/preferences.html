@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>환경설정 - 뜨거운 감자</title>
+  <link rel="stylesheet" href="component.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+    <!-- 메인 콘텐츠 영역 -->
+    <div class="content">
+      <div class="settings-container">
+        <div class="settings-header">
+          <h1>환경설정</h1>
+          <p>인터페이스 및 개인 설정을 관리하세요</p>
+        </div>
+        
+        <div class="settings-section">
+          <div class="settings-section-title">테마 설정</div>
+          <p class="settings-section-description">원하는 테마를 선택하여 인터페이스 색상을 변경하세요</p>
+          
+          <div class="theme-options">
+            <div class="theme-option" data-theme="default">
+              <div class="theme-preview">
+                <div class="preview-color" style="background-color: rgb(56, 67, 86);"></div>
+                <div class="preview-color" style="background-color: rgb(103, 123, 139);"></div>
+                <div class="preview-color" style="background-color: rgb(200, 211, 228);"></div>
+              </div>
+              <div class="theme-name">기본 테마</div>
+              <div class="theme-selected"><div class="checkmark"></div></div>
+            </div>
+            
+            <div class="theme-option" data-theme="purple">
+              <div class="theme-preview">
+                <div class="preview-color" style="background-color: rgb(77, 76, 125);"></div>
+                <div class="preview-color" style="background-color: rgb(130, 115, 151);"></div>
+                <div class="preview-color" style="background-color: rgb(233, 213, 218);"></div>
+              </div>
+              <div class="theme-name">보라색 테마</div>
+              <div class="theme-selected"><div class="checkmark"></div></div>
+            </div>
+            
+            <div class="theme-option" data-theme="green">
+              <div class="theme-preview">
+                <div class="preview-color" style="background-color: rgb(98, 110, 86); "></div>
+                <div class="preview-color" style="background-color: rgb(161, 179, 149); "></div>
+                <div class="preview-color" style="background-color: rgb(242, 243, 236); "></div>
+              </div>
+              <div class="theme-name">초록색 테마</div>
+              <div class="theme-selected"><div class="checkmark"></div></div>
+            </div>
+            
+            <div class="theme-option" data-theme="brown">
+              <div class="theme-preview">
+                <div class="preview-color" style="background-color: rgb(73, 54, 40);   "></div>
+                <div class="preview-color" style="background-color: rgb(171, 136, 109);"></div>
+                <div class="preview-color" style="background-color: #d7ccc8;"></div>
+              </div>
+              <div class="theme-name">갈색 테마</div>
+              <div class="theme-selected"><div class="checkmark"></div></div>
+            </div>
+            
+            <div class="theme-option" data-theme="gray">
+              <div class="theme-preview">
+                <div class="preview-color" style="background-color: #444444;"></div>
+                <div class="preview-color" style="background-color: #777777;"></div>
+                <div class="preview-color" style="background-color: #cccccc;"></div>
+              </div>
+              <div class="theme-name">회색 테마</div>
+              <div class="theme-selected"><div class="checkmark"></div></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="settings-actions">
+          <button class="settings-button cancel-button">취소</button>
+          <button class="settings-button save-button">설정 저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="theme.js"></script>
+  <script>
+    $(document).ready(function() {
+      // 사이드바와 헤더 로드
+      $("#sidebar-container").load("index.html .sidebar", function() {
+        // 사이드바 메뉴 활성화
+        $('.menu-item[data-page="preferences"]').addClass('active');
+      });
+      $("#main-content-container").prepend($("#header-container").load("index.html .header"));
+      
+      // 현재 선택된 테마 표시
+      const currentTheme = localStorage.getItem('selectedTheme') || 'default';
+      $(`.theme-option[data-theme="${currentTheme}"]`).addClass('active');
+      
+      // 테마 선택 이벤트
+      $('.theme-option').click(function() {
+        $('.theme-option').removeClass('active');
+        $(this).addClass('active');
+      });
+      
+      // 설정 저장 버튼
+      $('.save-button').click(function() {
+        const selectedTheme = $('.theme-option.active').data('theme');
+        localStorage.setItem('selectedTheme', selectedTheme);
+        applyTheme(selectedTheme);
+      });
+      
+      // 취소 버튼
+      $('.cancel-button').click(function() {
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>
